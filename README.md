@@ -1,3 +1,4 @@
+# General Info
 This repository contains my lunarvim config. I am new to neovim, so it is very minimalistic. I used starter.lvim as a starting point, then added my own plugins and adjustments to it.
 
 # Setup
