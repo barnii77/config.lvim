@@ -235,6 +235,12 @@ lvim.plugins = {
     opts = {
       -- add any options here
     },
+    routes = {
+      {
+        view = "notify",
+        filter = { event = "msg_showmode" },
+      },
+    },
     dependencies = {
       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
       "MunifTanjim/nui.nvim",
@@ -243,5 +249,22 @@ lvim.plugins = {
       --   If not available, we use `mini` as the fallback
       "rcarriga/nvim-notify",
     }
-  }
+  },
+  -- lualine
+  {
+    'nvim-lualine/lualine.nvim',
+    config = function()
+     require("lualine").setup {
+      sections = {
+        lualine_x = {
+          {
+            require("noice").api.statusline.mode.get,
+            cond = require("noice").api.statusline.mode.has,
+            color = { fg = "#ff9e64" },
+          }
+        },
+      },
+    }
+    end
+  },
 }
