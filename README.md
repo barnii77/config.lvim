@@ -7,3 +7,10 @@ Apart from that, a lot of things should work out of the box, others might requir
 
 # Keymaps
 I added <C-l> (Ctrl + l) as an alias to <Esc> (Escape) because <C-c> (Ctrl + c) has some special properties and doesnt work properly with the autosave plugin, whereas Escape does.
+Also, <Leader>sg is google and <Leader>u toggles the undo tree.
+
+| Key Mapping  | Description              |
+|--------------|--------------------------|
+| `<C-l>`      | Alias for `<Esc>`        |
+| `<Leader>sg` | Google search            |
+| `<Leader>u`  | Toggle the undo tree     |
