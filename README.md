@@ -14,3 +14,22 @@ Also, <Leader>sg is google and <Leader>u toggles the undo tree.
 | `<C-l>`      | Alias for `<Esc>`        |
 | `<Leader>sg` | Google search            |
 | `<Leader>u`  | Toggle the undo tree     |
+
+# Plugins
+| Plugin                                           | Type                   | Configuration                                                                                                                                                      |
+|--------------------------------------------------|------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ChristianChiarulli/swenv.nvim                    | Python                 | -                                                                                                                                                                  |
+| stevearc/dressing.nvim                            | Python                 | -                                                                                                                                                                  |
+| mfussenegger/nvim-dap-python                      | Python                 | -                                                                                                                                                                  |
+| nvim-neotest/neotest                              | Python                 | -                                                                                                                                                                  |
+| nvim-neotest/neotest-python                       | Python                 | -                                                                                                                                                                  |
+| simrat39/rust-tools.nvim                          | Rust                   | -                                                                                                                                                                  |
+| saecki/crates.nvim                                | Rust                   | Version: v0.3.0<br>Dependencies: nvim-lua/plenary.nvim<br>Config: `crates` setup with null_ls and popup configurations                                              |
+| j-hui/fidget.nvim                                 | Rust                   | Config: `fidget` setup                                                                                                                                            |
+| 0x00-ketsu/autosave.nvim                          | Language Independent   | Lazy-loading on events: "InsertLeave", "TextChanged"<br>Config: `autosave` setup                                                                                   |
+| zbirenbaum/copilot-cmp                           | Language Independent   | Event: "InsertEnter"<br>Dependencies: zbirenbaum/copilot.lua<br>Config: Github copilot setup                                                                      |
+| jackMort/ChatGPT.nvim                             | Language Independent   | Event: "VeryLazy"<br>Config: ChatGPT setup with openai_params<br>Dependencies: MunifTanjim/nui.nvim, nvim-lua/plenary.nvim, nvim-telescope/telescope.nvim         |
+| smoka7/multicursors.nvim                          | Language Independent   | Event: "VeryLazy"<br>Dependencies: smoka7/hydra.nvim<br>Cmd: MCstart, MCvisual, MCclear, MCpattern, MCvisualPattern, MCunderCursor                                  |
+| folke/noice.nvim                                  | Language Independent   | Event: "VeryLazy"<br>Opts: -<br>Routes: View "notify" with filter event "msg_showmode"<br>Dependencies: MunifTanjim/nui.nvim, rcarriga/nvim-notify (optional)   |
+| nvim-lualine/lualine.nvim                         | Language Independent   | Config: `lualine` setup with a custom section for statusline_x<br>Dependency: noice for statusline mode integration                                               |
+
