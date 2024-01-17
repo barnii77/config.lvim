@@ -1,12 +1,14 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 999
+vim.opt.undofile = true
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
   "lua",
   "rust",
   "toml",
+  "python",
 }
 
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust_analyzer" })
@@ -101,9 +103,13 @@ lvim.builtin.dap.on_config_done = function(dap)
   }
 end
 
-vim.api.nvim_set_keymap("n", "<m-d>", "<cmd>RustOpenExternalDocs<Cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("i", "<c-l>", "<Esc>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "<c-l>", "<Esc>", { noremap = true, silent = true })
+vim.keymap.set("n", "<m-d>", "<cmd>RustOpenExternalDocs<Cr>")
+
+-- custom keybindings
+vim.keymap.set("i", "<c-l>", "<Esc>")
+vim.keymap.set("v", "<c-l>", "<Esc>")
+vim.keymap.set("n", "<Leader>ut", vim.cmd.UndotreeToggle)
+vim.keymap.set("n", "<Leader>sg", vim.cmd.Google)
 
 -- google search functionality with w3m
 
@@ -119,6 +125,16 @@ function Google()
 end
 
 vim.api.nvim_create_user_command('Google', Google, { nargs = 0 })
+
+-- custom keybindings in treesitter
+lvim.builtin.which_key.mappings["u"] = {
+  name = "UndoTree",
+  t = { "<cmd>UndotreeToggle<cr>", "Toggle Undo Tree" },
+}
+
+lvim.builtin.which_key.mappings["s"]["g"] = {
+  "<cmd>Google<cr>", "Google"
+}
 
 lvim.builtin.which_key.mappings["C"] = {
   name = "Rust",
@@ -142,7 +158,16 @@ lvim.builtin.which_key.mappings["C"] = {
 }
 
 lvim.plugins = {
+  -- Python plugins
+
+  "ChristianChiarulli/swenv.nvim",
+  "stevearc/dressing.nvim",
+  "mfussenegger/nvim-dap-python",
+  "nvim-neotest/neotest",
+  "nvim-neotest/neotest-python",
+
   -- Rust plugins
+
   "simrat39/rust-tools.nvim",
   {
     "saecki/crates.nvim",
@@ -166,6 +191,9 @@ lvim.plugins = {
       require("fidget").setup()
     end,
   },
+
+  -- Other plugins
+
   -- Auto Saving
   {
     '0x00-ketsu/autosave.nvim',
@@ -268,4 +296,6 @@ lvim.plugins = {
     }
     end
   },
+  -- undotree
+  "mbbill/undotree",
 }
