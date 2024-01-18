@@ -2,7 +2,9 @@
 lvim.plugins = require("barnii77.plugins")
 
 -- Initialize different languages + general setup
+require("barnii77.dap")
 require("barnii77.python")
+require("barnii77.cpp")
 require("barnii77.rust")
 require("barnii77.setup")
 

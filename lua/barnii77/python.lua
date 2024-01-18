@@ -51,4 +51,5 @@ lvim.builtin.which_key.mappings["dS"] = { "<cmd>lua require('neotest').summary.t
 lvim.builtin.which_key.mappings["P"] = {
   name = "Python",
   c = { "<cmd>lua require('swenv.api').pick_venv()<cr>", "Choose Env" },
+  d = { "<cmd>Docstring<cr>", "Docstring" },
 }

@@ -1,4 +1,8 @@
 local plugins = {
+  -- C/C++ plugins
+  "p00f/clangd_extensions.nvim",
+
+
   -- Python plugins
 
   "ChristianChiarulli/swenv.nvim",
@@ -6,7 +10,7 @@ local plugins = {
   "mfussenegger/nvim-dap-python",
   "nvim-neotest/neotest",
   "nvim-neotest/neotest-python",
-
+  "pixelneo/vim-python-docstring",
 
   -- Rust plugins
 
