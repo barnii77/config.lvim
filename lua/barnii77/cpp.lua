@@ -72,8 +72,9 @@ local opts = {
 
 -- which_key
 lvim.builtin.which_key.mappings["C"] = {
+  name = "C/C++",
   h = { "<cmd>ClangdSwitchSourceHeader<cr>", "Switch Header/Source", },
-  r = { "<cmd>terminal clang main.c -o main && ./main<cr>", "Run the main file"}
+  r = { "<cmd>terminal clang main.c -o main && ./main<cr>", "Run the main file" }
 }
 
 require("lvim.lsp.manager").setup("clangd", opts)
