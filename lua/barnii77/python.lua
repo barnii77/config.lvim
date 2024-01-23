@@ -36,6 +36,29 @@ require("neotest").setup({
   }
 })
 
+function InitPyrightConfig()
+  local content = '{"executionEnvironments": [{"root": "./"}]}'
+  local filepath = "pyrightconfig.json"
+  local file = io.open(filepath, "r")
+  if not file then
+    -- If the file does not exist, create and write to it
+    file = io.open(filepath, "w")
+    if file == nil then
+      vim.api.nvim_command('echo "error creating pyrightconfig.json"')
+    else
+      file:write(content)
+      file:close()
+      vim.api.nvim_command('echo "pyrightconfig.json created"')
+    end
+  else
+    -- If the file already exists, close it and notify the user
+    vim.api.nvim_command('echo "file already exists"')
+    file:close()
+  end
+end
+
+vim.api.nvim_create_user_command('InitPyrightConfig', InitPyrightConfig, { nargs = 0 })
+
 lvim.builtin.which_key.mappings["dm"] = { "<cmd>lua require('neotest').run.run()<cr>",
   "Test Method" }
 lvim.builtin.which_key.mappings["dM"] = { "<cmd>lua require('neotest').run.run({strategy = 'dap'})<cr>",
@@ -54,4 +77,5 @@ lvim.builtin.which_key.mappings["P"] = {
   d = { "<cmd>Docstring<cr>", "Docstring" },
   i = { "<cmd>PyrightOrganizeImports<cr>", "Organize Imports" },
   r = { "<cmd>terminal python %<cr>", "Run current file" },
+  a = { "<cmd>InitPyrightConfig<cr>", "Auto-init pyrightconfig" },
 }
