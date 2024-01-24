@@ -60,18 +60,15 @@ Ensure required tools are installed and paths are configured for Python and Rust
 | `nvim-dap-python`                | Python  | -                                                                 | -                                    |
 | `neotest`                        | Python  | -                                                                 | -                                    |
 | `vim-python-docstring`           | Python  | -                                                                 | -                                    |
-|----------------------------------|---------|-------------------------------------------------------------------|----------------------------------------------------------------------|
 | `rust-tools.nvim`               | Rust    | -                                                                 | -                                                                    |
 | `crates.nvim`                   | Rust    | Version: v0.3.0, Dependencies: nvim-lua/plenary.nvim               | Config: `crates` setup with null_ls and popup configurations           |
 | `fidget.nvim`                   | Rust    | Config: `fidget` setup                                             | Config: `fidget` setup                                                 |
-|----------------------------------|---------|-------------------------------------------------------------------|-------------------------------------------------|
 | `autosave.nvim`                  | General | Lazy auto-saving on events                                        | Lazy-loading on events: "InsertLeave", "TextChanged"                    |
 | `copilot-cmp`                    | General | Github copilot                                                     | Event: "InsertEnter", Dependencies: `copilot.lua`, Config: Github copilot setup | Event: "InsertEnter", Dependencies: `copilot.lua`, Config: Github copilot setup |
 | `ChatGPT.nvim`                   | General | ChatGPT plugin (requires environment variable)                     | Event: "VeryLazy", Config: ChatGPT setup with openai_params, Dependencies: `nui.nvim`, `plenary.nvim`, `telescope.nvim` | Event: "VeryLazy", Config: ChatGPT setup with openai_params, Dependencies: `nui.nvim`, `plenary.nvim`, `telescope.nvim` |
 | `multicursors.nvim`              | General | Multi-Cursor support (press v then <Leader>m then j or k)          | Event: "VeryLazy", Dependencies: `hydra.nvim`, Cmd: MCstart, MCvisual, MCclear, MCpattern, MCvisualPattern, MCunderCursor | Event: "VeryLazy", Dependencies: `hydra.nvim`, Cmd: MCstart, MCvisual, MCclear, MCpattern, MCvisualPattern, MCunderCursor |
 | `noice.nvim`                     | General | Nice Modern vim-command-line UI + popups for error messages etc.   | Event: "VeryLazy", Opts: -, Routes: View "notify" with filter event "msg_showmode", Dependencies: `nui.nvim`, `nvim-notify` (optional) | Event: "VeryLazy", Opts: -, Routes: View "notify" with filter event "msg_showmode", Dependencies: `nui.nvim`, `nvim-notify` (optional) |
 | `lualine.nvim`                   | General | Statusline for noice.nvim so it can show some text while recording macros | Dependency: noice for statusline mode integration | Config: `lualine` setup with a custom section for statusline_x, Dependency: noice for statusline mode integration |
-|------------------|---------|------------------------------------|------------------------------------|
 | `undotree`       | General | Visualize and manage undo history  | -                                  |
 | `vim-be-good`    | General | Practice Vim motions and commands  | -                                  |
 
