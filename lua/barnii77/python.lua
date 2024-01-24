@@ -17,7 +17,12 @@ linters.setup { { command = "flake8", filetypes = { "python" } } }
 lvim.builtin.dap.active = true
 local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
 pcall(function()
-  require("dap-python").setup(mason_path .. "packages/debugpy/venv/bin/python")
+  local conda_prefix = os.getenv("CONDA_PREFIX")
+  if conda_prefix then  -- if conda_prefix is not nil, use conda python
+    require("dap-python").setup(conda_prefix .. "/bin/python")
+  else
+    require("dap-python").setup(mason_path .. "packages/debugpy/venv/bin/python")
+  end
 end)
 
 -- setup testing
