@@ -41,25 +41,31 @@ require("neotest").setup({
   }
 })
 
-function InitPyrightConfig()
-  local content = '{"executionEnvironments": [{"root": "./"}]}'
-  local filepath = "pyrightconfig.json"
+function WriteFileIfNotExists(filepath, content)
   local file = io.open(filepath, "r")
   if not file then
     -- If the file does not exist, create and write to it
     file = io.open(filepath, "w")
     if file == nil then
-      vim.api.nvim_command('echo "error creating pyrightconfig.json"')
+      vim.api.nvim_command('echo "error creating ' .. filepath .. '"')
     else
       file:write(content)
       file:close()
-      vim.api.nvim_command('echo "pyrightconfig.json created"')
+      vim.api.nvim_command('echo "' .. filepath .. ' created"')
     end
   else
     -- If the file already exists, close it and notify the user
-    vim.api.nvim_command('echo "file already exists"')
+    vim.api.nvim_command('echo "' .. filepath .. ' already exists"')
     file:close()
   end
+end
+
+--- will init a pyrightconfig.json and a setup.cfg if they don't exist
+function InitPyrightConfig()
+  -- pyrightconfig.json
+  WriteFileIfNotExists("pyrightconfig.json", '{"executionEnvironments": [{"root": "./"}]}')
+  -- setup.cfg
+  WriteFileIfNotExists("setup.cfg", "[flake8]\nmax-line-length=240")
 end
 
 vim.api.nvim_create_user_command('InitPyrightConfig', InitPyrightConfig, { nargs = 0 })

@@ -149,6 +149,9 @@ local plugins = {
 
   -- VimBeGood
   "ThePrimeagen/vim-be-good",
+
+  -- virtual text for debugging
+  "theHamsta/nvim-dap-virtual-text",
 }
 
 return plugins

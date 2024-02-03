@@ -78,6 +78,9 @@ Ensure required tools are installed and paths are configured for Python and Rust
 - **ChatGPT Integration**: Switch between GPT-4 and GPT-3.5
 - **Utils Category**: Explore utilities with `<Leader>u`
 
+## Additional Notes
+Use `gl` to see diagnostics for current line 
+
 ## Conclusion
 
 If you are starting out with LunarVim and trying to get started quickly with a decently simple and reasonable configuration, I think you could consider using my config.
