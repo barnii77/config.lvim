@@ -1,5 +1,17 @@
 -- This file handles all dap stuff (because there are conflicts between the individual language files so the on_config_done functions have to be fused)
 
+function VirtualTextDisplayCallback(variable, buf, stackframe, node, options)
+  if options.virt_text_pos == 'inline' then
+    return ' = ' .. variable.value
+  else
+    return ' => ' .. variable.name .. ' = ' .. variable.value
+  end
+end
+
+require("nvim-dap-virtual-text").setup {
+  display_callback = VirtualTextDisplayCallback,
+}
+
 local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
 
 local codelldb_path = mason_path .. "bin/codelldb"
