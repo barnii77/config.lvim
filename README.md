@@ -80,6 +80,19 @@ Ensure required tools are installed and paths are configured for Python and Rust
 - **Utils Category**: Explore utilities with `<Leader>u`
 
 ## Additional Notes
+### Folding
+fold lines in to make text more easy to overview
+create a fold by selecting text to be folded then do `zf` (f - fold)
+open first fold using `zo` (o - open)
+close first fold using `zc` (c - close)
+toggle first fold open and close `za`
+open all folds using `zO` (destroy inner folds)
+close all folds using `zC` (destroy inner folds)
+toggle all folds open and close `zA` (will destroy inner folds)
+open all folds using `zR`
+close all folds using `zM`
+
+
 when doing a search using /, you can do things like
 `/search_term/2` which moves the cursor 2 lines down
 `/search_term/e` goes to the end of the first word in search_term, in this case, it goes to the m
