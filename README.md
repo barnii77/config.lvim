@@ -79,6 +79,8 @@ Ensure required tools are installed and paths are configured for Python and Rust
 - **Utils Category**: Explore utilities with `<Leader>u`
 
 ## Additional Notes
+using :retab n you can change tabs to n spaces
+
 e goes to end of word, w goes to start of next word
 Use `gl` to see diagnostics for current line 
 Use `gd` to go to definition
