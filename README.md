@@ -98,6 +98,47 @@ find using `f[character]`, eg: `f.`
 `U` reverses all changes on last changed line
 `"` does something with a register (like `'` does something with a marker)
 
+deleting:
+:d _ throws away stuff and does not save to clipboard
+
+append to a register by using the capital letter instead of lowercase
+eg
+`"ayy` yanks line into a
+`"Ayy` appends line to a
+
+to change a macro, paste the content of register then modify it and yank it again, then just run it as macro
+eg:
+`"jp`
+$dl
+`modify`
+$dldl
+`"jyy`
+`@j` to run
+
+When replacing, use flag g to replace everything not just first occurance
+eg:
+`:%s/fun/fn` replaces first occurance in line
+`:%s/fun/fn/g` replaces every occurance
+
+use `.` to run command only on current line
+eg:
+`:.w file.txt` saves only changes in current line to file
+you can also add to it eg `.+4`
+
+You can also write with range:
+`:3,14w file.txt`
+
+visual selection
+use the markers `'<` for start of selection and `'>` for end of selection
+
+global command
+`:[range]g/pattern/command`
+this executes command on every occurance of pattern
+
+guu makes all line lowercase
+gUU makes all line uppercase
+
+
 ## Conclusion
 
 If you are starting out with LunarVim and trying to get started quickly with a decently simple and reasonable configuration, I think you could consider using my config.
