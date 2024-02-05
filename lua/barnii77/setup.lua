@@ -15,11 +15,8 @@ vim.opt.spelllang = "en_us"
 vim.keymap.set("n", "<m-d>", "<cmd>RustOpenExternalDocs<Cr>")
 
 -- custom keybindings
-vim.keymap.set("i", "<c-l>", "<Esc>")
-vim.keymap.set("v", "<c-l>", "<Esc>")
-vim.keymap.set("n", "<Leader>u", vim.cmd.UndotreeToggle)
-vim.keymap.set("n", "<Leader>sg", vim.cmd.Google)
-vim.keymap.set("n", "<Leader>t", vim.cmd.terminal)
+vim.keymap.set("i", "<C-l>", "<Esc>")
+vim.keymap.set("v", "<C-l>", "<Esc>")
 
 vim.opt.linebreak = true
 
