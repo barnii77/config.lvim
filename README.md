@@ -80,6 +80,11 @@ Ensure required tools are installed and paths are configured for Python and Rust
 - **Utils Category**: Explore utilities with `<Leader>u`
 
 ## Additional Notes
+### Auto-indenting
+`==` indents line
+`gg=G` indents entire file
+`=` will also indent everything selected in visual mode
+
 ### Folding
 fold lines in to make text more easy to overview
 create a fold by selecting text to be folded then do `zf` (f - fold)
