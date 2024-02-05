@@ -145,6 +145,10 @@ match beginning and end of word with \[ and \], ^ and $ are start/end of line
 normal mode J will join 2 lines together
 J = "$lXa "
 
+
+open a file in hex mode (binary mode) using -b
+v -b file.txt
+
 ## Conclusion
 
 If you are starting out with LunarVim and trying to get started quickly with a decently simple and reasonable configuration, I think you could consider using my config.
