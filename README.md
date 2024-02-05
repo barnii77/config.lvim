@@ -80,6 +80,10 @@ Ensure required tools are installed and paths are configured for Python and Rust
 - **Utils Category**: Explore utilities with `<Leader>u`
 
 ## Additional Notes
+when doing a search using /, you can do things like
+`/search_term/2` which moves the cursor 2 lines down
+`/search_term/e` goes to the end of the first word in search_term, in this case, it goes to the m
+
 using :retab n you can change tabs to n spaces
 :set wrap and :set nowrap to wrap / not wrap text
 
