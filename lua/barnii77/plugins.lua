@@ -2,7 +2,6 @@ local plugins = {
   -- C/C++ plugins
   "p00f/clangd_extensions.nvim",
 
-
   -- Python plugins
 
   "ChristianChiarulli/swenv.nvim",

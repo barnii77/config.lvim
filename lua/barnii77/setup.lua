@@ -9,6 +9,9 @@ lvim.builtin.treesitter.ensure_installed = {
   "toml",
 }
 
+vim.opt.spell = true
+vim.opt.spelllang = "en_us"
+
 vim.keymap.set("n", "<m-d>", "<cmd>RustOpenExternalDocs<Cr>")
 
 -- custom keybindings
@@ -24,6 +27,9 @@ vim.opt.linebreak = true
 
 function ProcessGoogleSearch(query)
   -- replace spaces with + in query
+  if query == nil or query == "" then
+    return
+  end
   query = query:gsub(" ", "+")
   local url = "https://www.google.com/search?q=" .. query
   vim.cmd.terminal("w3m " .. url)
@@ -38,10 +44,6 @@ vim.api.nvim_create_user_command('Google', Google, { nargs = 0 })
 -- custom keybindings in treesitter
 lvim.builtin.which_key.mappings["U"] = {
   "<cmd>UndotreeToggle<cr>", "UndoTree"
-}
-
-lvim.builtin.which_key.mappings["sg"] = {
-  "<cmd>Google<cr>", "Google"
 }
 
 -- swap model for chatgpt plugin
@@ -77,6 +79,7 @@ end
 -- create chatgpt user commands
 vim.api.nvim_create_user_command('ChatGPTUse4', SetModelGPT4, { nargs = 0 })
 vim.api.nvim_create_user_command('ChatGPTUse3x5', SetModelGPT3_5, { nargs = 0 })
+SetModelGPT3_5() -- set default model
 
 -- toggle function
 function VimOptToggle(opt)
@@ -107,4 +110,5 @@ lvim.builtin.which_key.mappings["u"] = {
     k = { "<cmd>ChatGPT<cr>", "new chat" }, -- note that k doesn't stand for anything, it is simple a comfortable key
   },
   w = { "<cmd>ToggleWrap<cr>", "Toggle wrapping" },
+  g = { "<cmd>Google<cr>", "Google" },
 }
