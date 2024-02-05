@@ -18,6 +18,7 @@ vim.keymap.set("n", "<Leader>u", vim.cmd.UndotreeToggle)
 vim.keymap.set("n", "<Leader>sg", vim.cmd.Google)
 vim.keymap.set("n", "<Leader>t", vim.cmd.terminal)
 
+vim.opt.linebreak = true
 
 -- google search functionality with w3m
 
@@ -77,6 +78,21 @@ end
 vim.api.nvim_create_user_command('ChatGPTUse4', SetModelGPT4, { nargs = 0 })
 vim.api.nvim_create_user_command('ChatGPTUse3x5', SetModelGPT3_5, { nargs = 0 })
 
+-- toggle function
+function VimOptToggle(opt)
+  local message = opt
+  if vim.opt[opt]:get() then
+    vim.opt[opt] = false
+    message = message .. " Disabled"
+  else
+    vim.opt[opt] = true
+    message = message .. " Enabled"
+  end
+  vim.notify(message)
+end
+
+vim.api.nvim_create_user_command('ToggleWrap', function() VimOptToggle("wrap") end, { nargs = 0 })
+
 -- set shortcuts for utils category
 
 lvim.builtin.which_key.mappings["u"] = {
@@ -89,5 +105,6 @@ lvim.builtin.which_key.mappings["u"] = {
     a = { "<cmd>ChatGPTUse4<cr>", "use GPT-4" },
     b = { "<cmd>ChatGPTUse3x5<cr>", "use GPT-3.5" },
     k = { "<cmd>ChatGPT<cr>", "new chat" }, -- note that k doesn't stand for anything, it is simple a comfortable key
-  }
+  },
+  w = { "<cmd>ToggleWrap<cr>", "Toggle wrapping" },
 }

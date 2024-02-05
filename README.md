@@ -17,6 +17,7 @@ Ensure required tools are installed and paths are configured for Python and Rust
 | `<Leader>sg` | Initiate Google search         |
 | `<Leader>U`  | Toggle UndoTree                |
 | `<Leader>uc` | ChatGPT plugin shortcuts       |
+| `<Leader>uw` | Toggle text wrapping           |
 
 ### Python Keybindings
 
@@ -80,6 +81,7 @@ Ensure required tools are installed and paths are configured for Python and Rust
 
 ## Additional Notes
 using :retab n you can change tabs to n spaces
+:set wrap and :set nowrap to wrap / not wrap text
 
 e goes to end of word, w goes to start of next word
 Use `gl` to see diagnostics for current line 
