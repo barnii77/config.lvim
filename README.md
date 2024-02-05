@@ -138,6 +138,12 @@ this executes command on every occurance of pattern
 guu makes all line lowercase
 gUU makes all line uppercase
 
+`:0read !ls` inserts output of ls command at line 0 of file
+
+match beginning and end of word with \[ and \], ^ and $ are start/end of line
+
+normal mode J will join 2 lines together
+J = "$lXa "
 
 ## Conclusion
 
