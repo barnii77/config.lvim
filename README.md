@@ -79,7 +79,24 @@ Ensure required tools are installed and paths are configured for Python and Rust
 - **Utils Category**: Explore utilities with `<Leader>u`
 
 ## Additional Notes
+e goes to end of word, w goes to start of next word
 Use `gl` to see diagnostics for current line 
+Use `gd` to go to definition
+Use `gr` to go to references
+S = cc
+cc change whole line
+`:ma [a-z]` sets a mark
+`'[a-z]` goes to line of a mark
+`d'[a-z]` deletes up to that mark
+`CTRL-o` goes to last cursor location (before 9j or something)
+`CTRL-i` goes to next cursor location after `CTRL-o` has (repeatedly) been used
+find using `f[character]`, eg: `f.`
+`v` starts visual character mode
+`V` starts visual line mode
+`R` multi-character replace
+`r`single char replace
+`U` reverses all changes on last changed line
+`"` does something with a register (like `'` does something with a marker)
 
 ## Conclusion
 
