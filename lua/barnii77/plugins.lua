@@ -161,6 +161,12 @@ local plugins = {
       require("barnii77.harpoon_config")
     end,
   },
+
+  -- typofix (MINE!)
+  -- {
+  --   "barnii77/typofix.nvim",
+  --   opts = {},
+  -- },
 }
 
 return plugins
