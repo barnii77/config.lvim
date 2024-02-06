@@ -74,6 +74,7 @@ Ensure required tools are installed and paths are configured for Python and Rust
 | `vim-be-good`    | General | Practice Vim motions and commands  | -                                  |
 | `nvim-dap-virtual-text`          | General | Virtual text for Debugging                                         | -
 | `harpoon`                        | General | Navigation between files                                           | see below
+| `typofix` (author: barnii77)     | Comments| helps you easily build a library of typos and then fixes them for you | path = "$HOME/.config/lvim/.typofix/iabbrev.vim" |
 
 ## Harpoon keybindings
 | keymap | function |
