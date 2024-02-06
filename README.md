@@ -72,6 +72,17 @@ Ensure required tools are installed and paths are configured for Python and Rust
 | `lualine.nvim`                   | General | Statusline for noice.nvim so it can show some text while recording macros | Dependency: noice for statusline mode integration | Config: `lualine` setup with a custom section for statusline_x, Dependency: noice for statusline mode integration |
 | `undotree`       | General | Visualize and manage undo history  | -                                  |
 | `vim-be-good`    | General | Practice Vim motions and commands  | -                                  |
+| `nvim-dap-virtual-text`          | General | Virtual text for Debugging                                         | -
+| `harpoon`                        | General | Navigation between files                                           | see below
+
+## Harpoon keybindings
+| keymap | function |
+| `c-s` | harpoon list |
+| `c-y` | 1st harpoon |
+| `c-x` | 2nd harpoon |
+| `c-m` | 3rd harpoon |
+| `c-n` | next harpoon |
+| `c-p` | prev harpoon |
 
 ## Additional Functionality
 
