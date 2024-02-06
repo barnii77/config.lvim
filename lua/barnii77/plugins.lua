@@ -163,6 +163,12 @@ local plugins = {
   },
 
   -- typofix (MINE!)
+  {
+    "barnii77/typofix.nvim",
+    opts = {
+      path = "$HOME/.config/lvim/.typofix/iabbrev.vim",
+    }
+  }
 }
 
 return plugins
