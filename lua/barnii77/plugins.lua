@@ -163,10 +163,6 @@ local plugins = {
   },
 
   -- typofix (MINE!)
-  -- {
-  --   "barnii77/typofix.nvim",
-  --   opts = {},
-  -- },
 }
 
 return plugins
