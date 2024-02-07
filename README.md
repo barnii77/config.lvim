@@ -18,6 +18,7 @@ Ensure required tools are installed and paths are configured for Python and Rust
 | `<Leader>U`  | Toggle UndoTree                |
 | `<Leader>uc` | ChatGPT plugin shortcuts       |
 | `<Leader>uw` | Toggle text wrapping           |
+| `<Leader>uf` | For typofix plugin shortcuts   |
 
 ### Python Keybindings
 
