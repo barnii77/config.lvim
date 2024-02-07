@@ -108,7 +108,7 @@ lvim.builtin.which_key.mappings["u"] = {
   },
   w = { "<cmd>ToggleWrap<cr>", "Toggle wrapping" },
   g = { "<cmd>Google<cr>", "Google" },
-  {
+  f = {
     c = {
       "<cmd>TypoFixCreate<cr>", "Create TypoFix"
     },
