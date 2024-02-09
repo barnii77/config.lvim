@@ -194,5 +194,4 @@ If you are starting out with LunarVim and trying to get started quickly with a d
 Also, if you are struggling with or just annoyed by the setup process and you use Debian, Ubuntu or Kali Linux, check out my [instant.lvim](https://github.com/barnii77/instant.lvim) repo for making installation a one-liner.
 
 # TODO
-- Add some insert abbreviations (:help abbreviations) using the ia command
-    - Eg: :ia teh the (replaces teh with the when it is typed out)
+- Make an issue on the harpoon repo because it is messing with my `gr` and ChatGPT plugin.

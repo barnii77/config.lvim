@@ -153,14 +153,14 @@ local plugins = {
   "theHamsta/nvim-dap-virtual-text",
 
   -- harpoon
-  {
-    "ThePrimeagen/harpoon",
-    branch = "harpoon2",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("barnii77.harpoon_config")
-    end,
-  },
+  -- {
+  --   "ThePrimeagen/harpoon",
+  --   branch = "harpoon2",
+  --   dependencies = { "nvim-lua/plenary.nvim" },
+  --   config = function()
+  --     require("barnii77.harpoon_config")
+  --   end,
+  -- },
 
   -- typofix (MINE!)
   {

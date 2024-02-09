@@ -3,3 +3,4 @@
 :iabbrev waht what
 :iabbrev tihs this
 :iabbrev wehn when
+:iabbrev si is
