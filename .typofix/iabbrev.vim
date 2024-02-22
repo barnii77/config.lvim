@@ -6,3 +6,4 @@
 :iabbrev thn than
 :iabbrev worte wrote
 :iabbrev teh the
+:iabbrev ot to
