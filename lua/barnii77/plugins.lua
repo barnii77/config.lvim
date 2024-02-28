@@ -174,4 +174,6 @@ local plugins = {
   "barnii77/lcaml.nvim",
 }
 
+require("lcaml")  -- setup autocmds
+
 return plugins
