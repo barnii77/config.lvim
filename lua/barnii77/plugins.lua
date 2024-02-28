@@ -171,9 +171,12 @@ local plugins = {
   },
 
   -- lcaml (my esoteric programming language)
-  "barnii77/lcaml.nvim",
+  {
+    "barnii77/lcaml.nvim",
+    config = function()
+      require("lcaml").init()
+    end,
+  },
 }
-
-require("lcaml")  -- setup autocmds
 
 return plugins
