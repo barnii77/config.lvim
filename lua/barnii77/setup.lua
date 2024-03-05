@@ -95,6 +95,8 @@ vim.api.nvim_create_user_command('ToggleWrap', function() VimOptToggle("wrap") e
 
 -- set shortcuts for utils category
 
+lvim.builtin.which_key.mappings["r"] = { "<cmd>mod<cr>", "clear & redraw" }
+
 lvim.builtin.which_key.mappings["u"] = {
   name = "Utils",
   t = {
