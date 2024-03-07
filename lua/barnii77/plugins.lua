@@ -171,12 +171,12 @@ local plugins = {
   },
 
   -- lcaml (my esoteric programming language)
-  {
-    "barnii77/lcaml.nvim",
-    config = function()
-      require("lcaml").init()
-    end,
-  },
+  -- {
+  --   "barnii77/lcaml.nvim",
+  --   config = function()
+  --     require("lcaml").init()
+  --   end,
+  -- },
 }
 
 return plugins
