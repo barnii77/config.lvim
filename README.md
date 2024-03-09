@@ -93,6 +93,21 @@ Ensure required tools are installed and paths are configured for Python and Rust
 - **Utils Category**: Explore utilities with `<Leader>u`
 
 ## Additional Notes
+
+### Marks
+use :ma {a-z} to create a local mark
+use :ma {A-Z} to create a global mark
+
+use '{a-z} to jump to local mark
+use '{A-Z} to jump to global mark
+
+local marks can only be used in the current buffer
+global marks can be used to jump from some buffer to another buffer where the global mark was set
+this means globals marks are inter-buffer marks
+
+### Terminal
+use ctrl + # to open a terminal!!!
+
 ### Auto-indenting
 `==` indents line
 `gg=G` indents entire file
