@@ -94,6 +94,12 @@ Ensure required tools are installed and paths are configured for Python and Rust
 
 ## Additional Notes
 
+### File Navigation
+You could simply do fricking `<leader>bj[a-z]` to jump to any open buffer or place a global mark there and do '[A-Z]
+But I was too stupid to see the which-key mapping and always used <leader>bn
+Lol
+Harpoon will stay commented out now that I have this
+
 ### Marks
 use :ma {a-z} to create a local mark
 use :ma {A-Z} to create a global mark
@@ -107,6 +113,11 @@ this means globals marks are inter-buffer marks
 
 ### Terminal
 use ctrl + # to open a terminal!!!
+
+### Searching Patterns
+
+Use # to search for the word below the cursor
+This is like typing /{word}
 
 ### Auto-indenting
 `==` indents line
