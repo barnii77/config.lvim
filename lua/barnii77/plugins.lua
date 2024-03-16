@@ -177,6 +177,8 @@ local plugins = {
   --     require("lcaml").init()
   --   end,
   -- },
+
+  "tpope/vim-surround",
 }
 
 return plugins

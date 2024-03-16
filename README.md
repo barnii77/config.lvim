@@ -94,6 +94,17 @@ Ensure required tools are installed and paths are configured for Python and Rust
 
 ## Additional Notes
 
+### tpope/vim-surround
+use <cmd>s<motion> to surround stuff
+y stands for insert, not yank in some cases (because i is not available)
+eg:
+
+ysip] to surround paragraph with []
+ds] deletes the surrounding [] and properly indents content
+cs[{ changes the surrounding [] to {}
+
+etc.
+
 ### File Navigation
 You could simply do fricking `<leader>bj[a-z]` to jump to any open buffer or place a global mark there and do '[A-Z]
 But I was too stupid to see the which-key mapping and always used <leader>bn
@@ -213,6 +224,22 @@ J = "$lXa "
 
 open a file in hex mode (binary mode) using -b
 v -b file.txt
+
+
+### Deleting Entire Functions
+Delete entire functions/classes/etc (paragraphs) using dip/dap
+change them using cip/cap
+yank using yip/yap
+select using vip/vap
+
+### Deleting Sentences
+You can delete/yank/change/select sentences by doing `[dycv][ia]s`
+
+### `M`
+`M` takes you to the middle of your screen. if scrolloff=999, this only makes a difference at the start/end of page
+
+### .
+. will repeat execute any changes you have made (pasting, deleting, editing, ...) to the buffer again. Yanking does not count
 
 ## Conclusion
 
