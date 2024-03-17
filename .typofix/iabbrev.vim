@@ -7,3 +7,5 @@
 :iabbrev worte wrote
 :iabbrev teh the
 :iabbrev ot to
+:iabbrev bild build
+:iabbrev buld build

@@ -86,6 +86,7 @@ lvim.builtin.which_key.mappings["R"] = {
   c = { "<cmd>RustOpenCargo<Cr>", "Open Cargo" },
   p = { "<cmd>RustParentModule<Cr>", "Parent Module" },
   d = { "<cmd>RustDebuggables<Cr>", "Debuggables" },
+  b = { "<cmd>term cargo build<Cr>", "Cargo Build" },
   v = { "<cmd>RustViewCrateGraph<Cr>", "View Crate Graph" },
   R = {
     "<cmd>lua require('rust-tools/workspace_refresh')._reload_workspace_from_cargo_toml()<Cr>",
