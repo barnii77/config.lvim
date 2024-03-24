@@ -1,3 +1,5 @@
+local M = {}
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 999 -- this makes it so the cursor is always centered
@@ -22,7 +24,7 @@ vim.opt.linebreak = true
 
 -- google search functionality with w3m
 
-function ProcessGoogleSearch(query)
+local function ProcessGoogleSearch(query)
   -- replace spaces with + in query
   if query == nil or query == "" then
     return
@@ -32,7 +34,7 @@ function ProcessGoogleSearch(query)
   vim.cmd.terminal("w3m " .. url)
 end
 
-function Google()
+local function Google()
   vim.ui.input({ prompt = "Query: " }, ProcessGoogleSearch)
 end
 
@@ -45,41 +47,38 @@ lvim.builtin.which_key.mappings["U"] = {
 
 -- swap model for chatgpt plugin
 
-function SetModelGPT4()
-  require("chatgpt").setup({
-    openai_params = {
-      model = "gpt-4-1106-preview",
-      frequency_penalty = 0,
-      presence_penalty = 0,
-      max_tokens = 4095,
-      temperature = 0.2,
-      top_p = 0.1,
-      n = 1,
-    }
-  })
-end
+function M.setup(plugin_states)
+  local function ChatGPTSetInfo(model, api_key, endpoint)
+    local chatgpt_api = require("chatgpt.api")
+    chatgpt_api.CHAT_COMPLETIONS_URL = endpoint
+    chatgpt_api.OPENAI_API_KEY = api_key
+    chatgpt_api.AUTHORIZATION_HEADER = "Authorization: Bearer " .. chatgpt_api.OPENAI_API_KEY
+    plugin_states.chatgpt_plugin_state.model = model
+  end
 
-function SetModelGPT3_5()
-  require("chatgpt").setup({
-    openai_params = {
-      model = "gpt-3.5-turbo-16k",
-      frequency_penalty = 0,
-      presence_penalty = 0,
-      max_tokens = 4095,
-      temperature = 0.2,
-      top_p = 0.1,
-      n = 1,
-    }
-  })
+  -- create chatgpt user commands
+  vim.api.nvim_create_user_command('ChatGPTUse4',
+    function()
+      ChatGPTSetInfo("gpt-4-1106-preview", os.getenv("OPENAI_API_KEY"),
+        "https://api.openai.com/v1/chat/completions")
+    end, { nargs = 0 })
+  vim.api.nvim_create_user_command('ChatGPTUse3x5',
+    function()
+      ChatGPTSetInfo("gpt-3.5-turbo-16k", os.getenv("OPENAI_API_KEY"),
+        "https://api.openai.com/v1/chat/completions")
+    end, { nargs = 0 })
+  vim.api.nvim_create_user_command('ChatGPTUseMixtral8x7bGroq',
+    function()
+      ChatGPTSetInfo("mixtral-8x7b-32768", os.getenv("GROQ_API_KEY"),
+        "https://console.groq.com/openai/v1/chat/completions")
+    end, { nargs = 0 })
+  vim.api.nvim_create_user_command('ChatGPTPrintModel',
+    function() vim.notify("Currently using " .. plugin_states.chatgpt_plugin_state.model .. " for ChatGPT") end,
+    { nargs = 0 })
 end
-
--- create chatgpt user commands
-vim.api.nvim_create_user_command('ChatGPTUse4', SetModelGPT4, { nargs = 0 })
-vim.api.nvim_create_user_command('ChatGPTUse3x5', SetModelGPT3_5, { nargs = 0 })
-SetModelGPT3_5() -- set default model
 
 -- toggle function
-function VimOptToggle(opt)
+local function VimOptToggle(opt)
   local message = opt
   if vim.opt[opt]:get() then
     vim.opt[opt] = false
@@ -106,7 +105,9 @@ lvim.builtin.which_key.mappings["u"] = {
     name = "ChatGPT utils",
     a = { "<cmd>ChatGPTUse4<cr>", "use GPT-4" },
     b = { "<cmd>ChatGPTUse3x5<cr>", "use GPT-3.5" },
+    c = { "<cmd>ChatGPTUseMixtral8x7bGroq<cr>", "use Mixtral-8x7b (Groq)" },
     k = { "<cmd>ChatGPT<cr>", "new chat" }, -- note that k doesn't stand for anything, it is simple a comfortable key
+    p = { "<cmd>ChatGPTPrintModel<cr>", "print model" },
   },
   w = { "<cmd>ToggleWrap<cr>", "Toggle wrapping" },
   g = { "<cmd>Google<cr>", "Google" },
@@ -129,3 +130,5 @@ lvim.builtin.which_key.mappings["u"] = {
     }
   },
 }
+
+return M

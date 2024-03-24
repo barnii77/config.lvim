@@ -1,12 +1,13 @@
 -- collect plugins
-lvim.plugins = require("barnii77.plugins")
+local plugin_data = require("barnii77.plugins")
+lvim.plugins = plugin_data.plugins
 
 -- Initialize different languages + general setup
 require("barnii77.dap")
 require("barnii77.python")
 require("barnii77.cpp")
 require("barnii77.rust")
-require("barnii77.setup")
+require("barnii77.setup").setup(plugin_data.states)
 
 -- NOTE: might come back to this later but for now, just put all plugins in a separate file
 

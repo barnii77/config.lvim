@@ -112,6 +112,7 @@ Lol
 Harpoon will stay commented out now that I have this
 
 ### Marks
+use m[a-zA-Z] or
 use :ma {a-z} to create a local mark
 use :ma {A-Z} to create a global mark
 

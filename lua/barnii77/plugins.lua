@@ -1,3 +1,11 @@
+local M = {}
+
+local states = {
+  chatgpt_plugin_state = {
+    model = "gpt-4-1106-preview"
+  }
+}
+
 local plugins = {
   -- C/C++ plugins
   "p00f/clangd_extensions.nvim",
@@ -7,7 +15,12 @@ local plugins = {
   "ChristianChiarulli/swenv.nvim",
   "stevearc/dressing.nvim",
   "mfussenegger/nvim-dap-python",
-  "nvim-neotest/neotest",
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-neotest/nvim-nio",
+    }
+  },
   "nvim-neotest/neotest-python",
   "pixelneo/vim-python-docstring",
 
@@ -52,25 +65,28 @@ local plugins = {
     end
   },
   -- Github copilot
-  {
-    "zbirenbaum/copilot-cmp",
-    event = "InsertEnter",
-    dependencies = { "zbirenbaum/copilot.lua" },
-    config = function()
-      vim.defer_fn(function()
-        require("copilot").setup()     -- https://github.com/zbirenbaum/copilot.lua/blob/master/README.md#setup-and-configuration
-        require("copilot_cmp").setup() -- https://github.com/zbirenbaum/copilot-cmp/blob/master/README.md#configuration
-      end, 100)
-    end,
-  },
+  -- {
+  --   "zbirenbaum/copilot-cmp",
+  --   event = "InsertEnter",
+  --   dependencies = { "zbirenbaum/copilot.lua" },
+  --   config = function()
+  --     vim.defer_fn(function()
+  --       require("copilot").setup()     -- https://github.com/zbirenbaum/copilot.lua/blob/master/README.md#setup-and-configuration
+  --       require("copilot_cmp").setup() -- https://github.com/zbirenbaum/copilot-cmp/blob/master/README.md#configuration
+  --     end, 100)
+  --   end,
+  -- },
   -- ChatGPT
   {
-    "jackMort/ChatGPT.nvim",
+    -- use my fork of the chatgpt plugin (for now)
+    -- TODO: switch to jackMort/ChatGPT.nvim once my pull request has been accepted
+    "barnii77/ChatGPT.nvim",
     event = "VeryLazy",
     config = function()
       require("chatgpt").setup({
+        api_key_cmd = "printenv -0 OPENAI_API_KEY",
         openai_params = {
-          model = "gpt-4-1106-preview",
+          model = function() return states.chatgpt_plugin_state.model end, -- function() return M.state.chatgpt_plugin_state.model end,
           frequency_penalty = 0,
           presence_penalty = 0,
           max_tokens = 4095,
@@ -181,4 +197,7 @@ local plugins = {
   "tpope/vim-surround",
 }
 
-return plugins
+M.states = states
+M.plugins = plugins
+
+return M
