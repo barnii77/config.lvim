@@ -2,8 +2,8 @@ local M = {}
 
 local states = {
   chatgpt_plugin_state = {
-    model = "gpt-4-1106-preview"
-  }
+    model = "gpt-3.5-turbo-16k",
+  },
 }
 
 local plugins = {
