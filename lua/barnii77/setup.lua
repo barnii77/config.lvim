@@ -59,7 +59,7 @@ function M.setup(plugin_states)
   -- create chatgpt user commands
   vim.api.nvim_create_user_command('ChatGPTUse4',
     function()
-      ChatGPTSetInfo("gpt-4-1106-preview", os.getenv("OPENAI_API_KEY"),
+      ChatGPTSetInfo("gpt-4o", os.getenv("OPENAI_API_KEY"),
         "https://api.openai.com/v1/chat/completions")
     end, { nargs = 0 })
   vim.api.nvim_create_user_command('ChatGPTUse3x5',
@@ -69,7 +69,7 @@ function M.setup(plugin_states)
     end, { nargs = 0 })
   vim.api.nvim_create_user_command('ChatGPTUseMixtral8x7bGroq',
     function()
-      ChatGPTSetInfo("mixtral-8x7b-32768", os.getenv("GROQ_API_KEY"),
+      ChatGPTSetInfo("llama3-70b-8192", os.getenv("GROQ_API_KEY"),
         "https://console.groq.com/openai/v1/chat/completions")
     end, { nargs = 0 })
   vim.api.nvim_create_user_command('ChatGPTPrintModel',

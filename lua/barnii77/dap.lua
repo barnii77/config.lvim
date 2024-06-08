@@ -32,6 +32,19 @@ lvim.builtin.dap.on_config_done = function(dap)
   -- codelldb
   dap.adapters.codelldb = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path)
 
+  -- dap.adapters.codelldb = {
+  --   type = "server",
+  --   port = "${port}",
+  --   executable = {
+  --     -- provide the absolute path for `codelldb` command if not using the one installed using `mason.nvim`
+  --     command = "codelldb",
+  --     args = { "--port", "${port}" },
+
+  --     -- On windows you may have to uncomment this:
+  --     -- detached = false,
+  --   },
+  -- }
+
   -- Rust
   dap.configurations.rust = {
     {
@@ -53,12 +66,7 @@ lvim.builtin.dap.on_config_done = function(dap)
       type = "codelldb",
       request = "launch",
       program = function()
-        local path
-        vim.ui.input({ prompt = "Path to executable: ", default = vim.loop.cwd() .. "/build/" }, function(input)
-          path = input
-        end)
-        vim.cmd [[redraw]]
-        return path
+        return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
       end,
       cwd = "${workspaceFolder}",
       stopOnEntry = false,
@@ -66,4 +74,18 @@ lvim.builtin.dap.on_config_done = function(dap)
   }
 
   dap.configurations.c = dap.configurations.cpp
+
+  -- Haskell
+  dap.configurations.haskell = {
+    {
+      name = "Launch file",
+      type = "codelldb",
+      request = "launch",
+      program = function()
+        return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+      end,
+      cwd = "${workspaceFolder}",
+      stopOnEntry = false,
+    }
+  }
 end

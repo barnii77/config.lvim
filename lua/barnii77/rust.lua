@@ -51,8 +51,9 @@ pcall(function()
         })
       end,
     },
+    -- (?) dap = lvim.builtin.dap,
     dap = {
-      -- adapter= codelldb_adapter,
+      -- adapter = codelldb_adapter,
       adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
     },
     server = {

@@ -9,3 +9,4 @@
 :iabbrev ot to
 :iabbrev bild build
 :iabbrev buld build
+:iabbrev adn and
