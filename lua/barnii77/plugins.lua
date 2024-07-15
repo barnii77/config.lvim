@@ -87,9 +87,7 @@ local plugins = {
   },
   -- ChatGPT
   {
-    -- use my fork of the chatgpt plugin (for now)
-    -- TODO: switch to jackMort/ChatGPT.nvim once my pull request has been accepted
-    "barnii77/ChatGPT.nvim",
+    "jackMort/ChatGPT.nvim",
     event = "VeryLazy",
     config = function()
       require("chatgpt").setup({

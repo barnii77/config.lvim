@@ -10,3 +10,6 @@
 :iabbrev bild build
 :iabbrev buld build
 :iabbrev adn and
+:iabbrev logn long
+:iabbrev tiem time
+:iabbrev typign typing
