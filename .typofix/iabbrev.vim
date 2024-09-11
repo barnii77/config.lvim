@@ -13,3 +13,4 @@
 :iabbrev logn long
 :iabbrev tiem time
 :iabbrev typign typing
+:iabbrev nto not

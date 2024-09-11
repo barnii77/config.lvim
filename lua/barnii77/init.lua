@@ -6,6 +6,6 @@ lvim.plugins = plugin_data.plugins
 require("barnii77.dap")
 -- require("barnii77.haskell")
 require("barnii77.python")
-require("barnii77.cpp")
+-- require("barnii77.cpp")
 require("barnii77.rust")
 require("barnii77.setup").setup(plugin_data.states)

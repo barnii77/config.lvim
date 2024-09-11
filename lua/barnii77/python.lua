@@ -6,7 +6,7 @@ lvim.builtin.treesitter.ensure_installed = {
 -- setup formatting
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup { { name = "black" }, }
-lvim.format_on_save.enabled = true
+lvim.format_on_save.enabled = false
 lvim.format_on_save.pattern = { "*.py" }
 
 -- setup linting
