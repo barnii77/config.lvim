@@ -2,7 +2,7 @@ local M = {}
 
 local states = {
   chatgpt_plugin_state = {
-    model = "gpt-3.5-turbo-16k",
+    model = "gpt-4o-mini",
   },
 }
 
