@@ -150,4 +150,4 @@ end
 
 local dap = require("dap")
 setup_dap(dap)
--- lvim.builtin.dap.on_config_done = setup_dap
+lvim.builtin.dap.on_config_done = setup_dap

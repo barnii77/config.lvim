@@ -27,6 +27,7 @@ local plugins = {
   -- Rust plugins
 
   "simrat39/rust-tools.nvim",
+
   {
     "saecki/crates.nvim",
     version = "v0.3.0",
@@ -43,6 +44,7 @@ local plugins = {
       }
     end,
   },
+
   {
     "j-hui/fidget.nvim",
     config = function()
