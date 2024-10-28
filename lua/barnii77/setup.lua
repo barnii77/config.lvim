@@ -2,6 +2,7 @@ local M = {}
 
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.timeoutlen = 2000  -- motion timeout of 3 secs instead of default 1 (formatting large files can take a while)
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 999 -- this makes it so the cursor is always centered
@@ -21,6 +22,13 @@ vim.keymap.set("n", "<m-d>", "<cmd>RustOpenExternalDocs<Cr>")
 -- custom keybindings
 vim.keymap.set("i", "<C-l>", "<Esc>")
 vim.keymap.set("v", "<C-l>", "<Esc>")
+
+-- explicitly set these keybindings because rustaceanvim is too dumb to do this by itself apparently
+local opts = { noremap = true, silent = true }
+vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
+vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
+vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
+vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
 
 vim.opt.linebreak = true
 
@@ -69,7 +77,7 @@ function M.setup(plugin_states)
       ChatGPTSetInfo("gpt-3.5-turbo-16k", os.getenv("OPENAI_API_KEY"),
         "https://api.openai.com/v1/chat/completions")
     end, { nargs = 0 })
-  vim.api.nvim_create_user_command('ChatGPTUseMixtral8x7bGroq',
+  vim.api.nvim_create_user_command('ChatGPTUseLlama70B',
     function()
       ChatGPTSetInfo("llama3-70b-8192", os.getenv("GROQ_API_KEY"),
         "https://console.groq.com/openai/v1/chat/completions")

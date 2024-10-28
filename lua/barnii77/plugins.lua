@@ -26,7 +26,12 @@ local plugins = {
 
   -- Rust plugins
 
-  "simrat39/rust-tools.nvim",
+  {
+    "mrcjkb/rustaceanvim",
+    version = '^5', -- Recommended
+    lazy = false, -- This plugin is already lazy
+  },
+  -- "simrat39/rust-tools.nvim",
 
   {
     "saecki/crates.nvim",
